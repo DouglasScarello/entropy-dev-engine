@@ -1,62 +1,64 @@
-# Entropia Engine
+<p align="center">
+  <img src="assets/logo.png" width="200" alt="Entropy Dev Engine Logo">
+</p>
 
-Entropia Engine é um motor de **engenharia automática** que transforma requisitos em texto em **arquitetura de software** e **código inicial**, usando um loop de agentes de IA:
+# Entropy Dev Engine
 
-- **Criador**: propõe arquitetura e código.
-- **Crítico**: destrói, aponta falhas e melhorias.
-- (Futuro) **Juiz / Testador**: valida, executa testes e decide pela versão final.
+> **Architecture emerges from entropy.**
 
-O fluxo básico é:
+Entropy Dev Engine is a multi-agent AI system designed to transform raw software ideas into refined, production-ready architectures through automated dialectic debate.
 
-```bash
-entropia run "Quero um app de chat P2P criptografado"
-```
+---
 
-O sistema cria um debate multi‑agente, converge para uma solução e salva:
+## 🚀 The Concept
 
-- `architecture.md` – arquitetura final.
-- `code/` – arquivos de código sugeridos.
-- `metadata.json` – decisões, trade‑offs, modelos usados.
+Inspired by Information Theory and conceptualized for the AI era, this engine uses a specialized multi-agent workflow to solve the "blank page" problem in software engineering.
 
-## Instalação (desenvolvimento)
+## 🤖 The Agents
 
-Requisitos:
+At the core of the engine are three specialized agents that collaborate in a high-stakes debate:
 
-- Python 3.11+
-- Poetry instalado
+- **Creator** → Designs the initial architecture and generates the preliminary codebase.
+- **Critic** → Aggressively reviews the output, hunting for security vulnerabilities, performance bottlenecks, and scalability issues.
+- **Judge** → Mediates the debate, analyzes the history, and decides when the architecture has reached the necessary stability for export.
 
-No diretório do projeto:
+## 🛠️ Quick Start
 
 ```bash
-poetry install
-poetry run entropia --help
+# Run the engine with a raw idea
+entropia run "build a decentralized mesh network for localized emergency communication"
 ```
 
-## Uso rápido
+### Example Output
 
 ```bash
-entropia run "Quero um serviço de crawling distribuído com fila e workers"
+Round 1/5 – Creator generating architecture...
+Round 1/5 – Critic reviewing architecture...
+
+⚠️ Security issues detected:
+- Missing peer authentication
+- Potential for sybil attacks
+
+Round 2/5 – Creator applying architectural hardening...
+✅ FINAL STATUS: STABLE
+📦 Exporting project to ./entropia_out/2026-03-09/
 ```
 
-Por padrão, a saída será gravada em um diretório como:
+## 🏗️ Architecture Flow
 
-- `entropia_out/2026-03-09T12-00-00/`
+```mermaid
+graph TD
+    A[User Idea] --> B[Creator Agent]
+    B --> C[Critic Agent]
+    C --> D{Judge Verdict}
+    D -- "Need Improvements" --> B
+    D -- "Approved" --> E[Output Writer]
+    E --> F[Code + Docs Export]
+```
 
-## Estrutura planejada
+## 📜 Tags
 
-- `entropia_engine/`
-  - `cli.py` – interface de linha de comando (`entropia run`).
-  - `core/orchestrator.py` – loop Criador ↔ Crítico ↔ (Juiz/Testador).
-  - `core/state_manager.py` – gestão de estado e contexto (resumos, `state.json`).
-  - `core/model_router.py` – escolha de modelos (cloud vs local, forte vs fraco).
-  - `agents/creator.py` – agente Criador.
-  - `agents/critic_security.py` – crítico focado em segurança.
-  - `agents/critic_architecture.py` – crítico focado em arquitetura/performance.
-  - `agents/tester.py` – executa testes, linters, compile gate.
-  - `agents/judge.py` – sintetiza e aprova a versão final.
-  - `execution/sandbox.py` – sandbox para executar código sugerido.
-  - `execution/code_runner.py` – roda testes/linters (pytest, mypy, ruff, etc.).
-  - `output/writer.py` – grava arquivos (`architecture.md`, `code/`, `metadata.json`).
-  - `config/settings.py` – leitura de `.env`, `config.toml`, flags do CLI.
+`#ai` `#multi-agent` `#llm` `#software-architecture` `#automation` `#developer-tools` `#autogen` `#langgraph`
 
-Nas primeiras versões, alguns módulos podem ser stubs, evoluindo à medida que os fluxos ficarem mais sofisticados.
+---
+Made with ☕ and AI by [DouglasScarello](https://github.com/DouglasScarello)
