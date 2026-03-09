@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "entropia-engine"
+version = "0.1.0"
+description = "Entropia Engine - loop multi-agente Criador ↔ Crítico para gerar arquitetura e código automaticamente a partir de requisitos em linha de comando."
+authors = ["Douglas DSR <you@example.com>"]
+readme = "README.md"
+packages = [{ include = "entropia_engine" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+autogen-agentchat = "^0.4.0"
+python-dotenv = "^1.0.1"
+typer = "^0.12.3"
+rich = "^13.9.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.0"
+ruff = "^0.6.9"
+mypy = "^1.12.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+entropia = "entropia_engine.cli:app"
